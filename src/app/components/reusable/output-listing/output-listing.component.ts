@@ -40,7 +40,7 @@ export class OutputListingComponent implements OnInit, OnDestroy {
     console.log('Output-Listing subscription');
     this.walletService.getOutputs(id, show_spent)
       .subscribe((outputs) => {
-        this.outputs = outputs;
+        this.outputs = outputs.map(x => x[0]);
       });
   }
 
