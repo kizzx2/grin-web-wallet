@@ -1,6 +1,6 @@
  <table class="table table-sm  w-100 table-striped table-hover">
    <tbody>
-   <ng-container *ngFor="let tx of txs?.reverse();let i = index" >
+   <ng-container *ngFor="let tx of txs?.slice().reverse();let i = index" >
      <tr *ngIf="i<num_entries || num_entries==0" [routerLink]="['/tx-detail', tx.id]" style="cursor: pointer;" >
        <td class="">{{util.parseDate(tx.creation_ts)}}</td>
        <td class="">{{util.parseTxType(tx)}}</td>

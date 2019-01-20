@@ -13,7 +13,7 @@ RUN ./node_modules/.bin/ng build --prod
 
 FROM nginx:alpine
 
-RUN apk add -U gomplate apache2-utils && rm -rf /var/cache/apk/*
+RUN apk add -U gomplate && rm -rf /var/cache/apk/*
 
 COPY --from=builder /app/dist/grin-wallet/* /usr/share/nginx/html/
 
