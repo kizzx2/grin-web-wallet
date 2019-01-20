@@ -12,11 +12,11 @@ import {ActivatedRoute, Resolve, Router} from '@angular/router';
 @Injectable()
 export class WalletService {
 
-  private output_url = 'http://localhost:13420/v1/wallet/owner/retrieve_outputs';
-  private txs_url = 'http://localhost:13420/v1/wallet/owner/retrieve_txs';
-  private wallet_info_url = 'http://localhost:13420/v1/wallet/owner/retrieve_summary_info';
-  private node_height_url = 'http://localhost:13420/v1/wallet/owner/node_height';
-  private send_url = 'http://localhost:13420/v1/wallet/owner/issue_send_tx';
+  private output_url = `${APP_CONFIG.WALLET_OWNER_API_URL}/v1/wallet/owner/retrieve_outputs`;
+  private txs_url = `${APP_CONFIG.WALLET_OWNER_API_URL}/v1/wallet/owner/retrieve_txs`;
+  private wallet_info_url = `${APP_CONFIG.WALLET_OWNER_API_URL}/v1/wallet/owner/retrieve_summary_info`;
+  private node_height_url = `${APP_CONFIG.WALLET_OWNER_API_URL}/v1/wallet/owner/node_height`;
+  private send_url = `${APP_CONFIG.WALLET_OWNER_API_URL}/v1/wallet/owner/issue_send_tx`;
 
   isUpdatingEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   totalFailureEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();

@@ -7,6 +7,7 @@ import { WalletService} from '../../../services/wallet.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  readonly readonlyWallet = APP_CONFIG.WALLET_READONLY;
 
   constructor(public walletService: WalletService) { }
 

@@ -1,0 +1,20 @@
+server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        root   /usr/share/nginx/html;
+        gzip on;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+
+    {{if (getenv "WALLET_READONLY" | bool)}}
+    location ~* ^/v1/wallet/owner/(node_height|retrieve_summary_info|retrieve_txs|retrieve_outputs) {
+    {{else}}
+    location /v1/wallet/owner {
+    {{end}}
+      proxy_pass {{ .Env.OWNER_API_URL }};
+      proxy_set_header Authorization "Basic {{ print "grin:" .Env.OWNER_API_SECRET | base64.Encode }}";
+    }
+}

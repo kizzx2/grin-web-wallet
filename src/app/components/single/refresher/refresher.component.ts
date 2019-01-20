@@ -67,6 +67,7 @@ export class RefresherContentComponent {
 })
 export class FailureContentComponent {
   @Input() name;
+  readonly ownerApiUrl = APP_CONFIG.WALLET_OWNER_API_URL;
 
   constructor(public activeModal: NgbActiveModal) {
   }
