@@ -15,7 +15,7 @@ FROM nginx:alpine
 
 RUN apk add -U gomplate && rm -rf /var/cache/apk/*
 
-COPY --from=builder /app/dist/grin-wallet/* /usr/share/nginx/html/
+COPY --from=builder /app/dist/grin-wallet /usr/share/nginx/html
 
 COPY ./etc/entrypoint.sh /
 COPY ./etc/nginx.conf.gotmpl /nginx.conf.gotmpl
